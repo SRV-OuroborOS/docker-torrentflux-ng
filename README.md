@@ -60,6 +60,8 @@ services:
    DB_NAME: torrentflux
    DB_USER: root
    DB_PASS: root
+  ports:
+  - 80:80
 
  torrentflux_db:
   image: mariadb:10.3
