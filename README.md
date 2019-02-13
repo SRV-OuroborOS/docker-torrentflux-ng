@@ -36,10 +36,12 @@ DB_USER
 
 DB_PASS
 
+APACHE_RUN_USER
+* in order to have rights on download folder
+
 ## Volume
 /var/www/html/downloads
 * download files are store here
-
 
 ## Docker compose example
 2 services :
