@@ -42,19 +42,19 @@ DB_PASS
 
 
 ## Docker compose example
-3 services :
+2 services :
 * Torrentflux
 * Database
-* A web server to download files (it can be a ftp or what you want)
+* Optional : A ftp server to download files plug on volume data
 ```
 version: "3.4"
 services:
  torrentflux:
-  image: torrentflux:latest
+  image: nmanceau/torrentflux
   depends_on:
    - torrentflux_db
   volumes:
-   - /data/torrentflux:/var/www/html/downloads
+   - torrentflux_data:/var/www/html/downloads
   environment:
    DB_HOST: torrentflux_db
    DB_NAME: torrentflux
@@ -70,8 +70,7 @@ services:
    MYSQL_ROOT_PASSWORD: root
    MYSQL_DATABASE: torrentflux
 
- torrentflux_nginx:
-  image: nginx:latest
-  volumes:
-   - /data/torrentflux:/data
+volumes:
+  torrentflux_db:
+  torrentflux_data:
 ```
