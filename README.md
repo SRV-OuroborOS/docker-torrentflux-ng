@@ -50,7 +50,7 @@ DB_PASS
 version: "3.4"
 services:
  torrentflux:
-  image: nmanceau/torrentflux
+  image: nmanceau/torrentflux-ng
   depends_on:
    - torrentflux_db
   volumes:
