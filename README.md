@@ -56,22 +56,21 @@ services:
   volumes:
    - torrentflux_data:/var/www/html/downloads
   environment:
-   DB_HOST: torrentflux_db
-   DB_NAME: torrentflux
-   DB_USER: root
-   DB_PASS: root
+   - DB_HOST=torrentflux_db
+   - DB_NAME=torrentflux
+   - DB_USER=root
+   - DB_PASS=root
+   - APACHE_RUN_USER=#1000
   ports:
-  - 80:80
-
- torrentflux_db:
+  - 8080:80
+torrentflux_db:
   image: mariadb:10.3
   command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
   volumes:
   - torrentflux_db:/var/lib/mysql
   environment:
-   MYSQL_ROOT_PASSWORD: root
-   MYSQL_DATABASE: torrentflux
-
+   - MYSQL_ROOT_PASSWORD=root
+   - MYSQL_DATABASE=torrentflux
 volumes:
   torrentflux_db:
   torrentflux_data:
