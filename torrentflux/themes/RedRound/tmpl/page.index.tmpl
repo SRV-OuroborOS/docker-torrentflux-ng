@@ -18,12 +18,11 @@
 
 <div id="tabs">
 	<div id="tabs-2"><tmpl_include name="inc.indexTorrentUpload.tmpl"></div>
-	<div id="tabs-3"><tmpl_include name="inc.indexTorrentGet.tmpl"></div>
+	<tmpl_if name="enable_wget"><div id="tabs-3"><tmpl_include name="inc.indexWget.tmpl"></div></tmpl_if>
 
 	<ul style="margin:0 15px;" class="maintabs">
 		<li><a href="#tabs-1">Torrents</a></li>
 		<tmpl_if name="enable_search"><li><a href="#tabs-4"><tmpl_var name="_SEARCH"></a></li></tmpl_if>
-		<tmpl_if name="enable_wget"><li><a href="#tabs-5">wget</a></li></tmpl_if>
 		<tmpl_if name="enable_nzbperl"><li><a href="#tabs-6">NZB Perl</a></li></tmpl_if>
 		<tmpl_if name="ui_displayusers"><li><a href="#tabs-7"><tmpl_var name="_USERS"></a></li></tmpl_if>
 		<tmpl_if name="ui_displaylinks" value="1"><li><a href="#tabs-8"><tmpl_var name="_LINKS"></a></li></tmpl_if>
@@ -32,7 +31,6 @@
 	</ul>
 	<div id="tabs-1"><tmpl_include name="inc.transferList.tmpl"><tmpl_include name="inc.transferListBulkActions.tmpl"></div>
 	<tmpl_if name="enable_search"><div id="tabs-4"><tmpl_include name="inc.indexTorrentSearch.tmpl"></div></tmpl_if>
-	<tmpl_if name="enable_wget"><div id="tabs-5"><tmpl_include name="inc.indexWget.tmpl"></div></tmpl_if>
 	<tmpl_if name="enable_nzbperl"><div id="tabs-6"><tmpl_include name="inc.indexNZB.tmpl"></div></tmpl_if>
 	<tmpl_if name="ui_displayusers"><div id="tabs-7"><tmpl_include name="inc.indexUsers.tmpl"></div></tmpl_if>
 	<tmpl_if name="ui_displaylinks" value="1"><div id="tabs-8"><tmpl_include name="inc.indexLinks.tmpl"></div></tmpl_if>
