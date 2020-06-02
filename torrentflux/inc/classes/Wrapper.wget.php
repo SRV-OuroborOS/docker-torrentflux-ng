@@ -336,6 +336,7 @@ class WrapperWget
 		    $command .= " nice -n ".$cfg["nice_adjust"];
 		$command .= " ".$cfg['bin_wget'];
 		$command .= " -c";
+		$command .= " --no-check-certificate";
 		if (($this->_drate != "") && ($this->_drate != "0"))
 			$command .= " --limit-rate=" . $this->_drate;
 		if ($this->_retries != "")
